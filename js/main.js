@@ -14,7 +14,7 @@ $(function () {
 
     $('#header .inner .nav.mobile .close_btn').on('click', function () {
         $('#header .nav.mobile').removeClass('active');
-    });
+    });//모바일 화면 아이콘 생성
 
 
 
@@ -24,15 +24,22 @@ $(function () {
 
     $tabButtons.on('click', function (e) {
         e.preventDefault();
+
         const $li = $(this).closest('li');
         const index = $li.index();
 
+        // 탭 활성화 처리
         $tabItems.removeClass('active');
         $li.addClass('active');
 
+        // 패널 활성화 처리
         $panels.removeClass('active').attr('hidden', true);
         $panels.eq(index).addClass('active').removeAttr('hidden');
-    }); //탭메뉴
+
+        // 🔥 탭 클릭 시 section-02 맨 위로 스크롤 (헤더 높이만큼 보정)
+        const sectionTop = $('.section-02').offset().top - getHeaderH();
+        $('html, body').stop(true).animate({ scrollTop: sectionTop }, 500);
+    });
 
 
     const getHeaderH = () => $('#header').outerHeight() || 0;

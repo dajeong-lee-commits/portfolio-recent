@@ -110,16 +110,13 @@ section .inner,
       }
     }
 
-    
-
     .menu_btn {
       display: flex;
       align-items: center;
-/*       border: 1.8px solid #222222;
+      /*       border: 1.8px solid #222222;
       border-radius: 50px;
       padding: 8px 8px; */
       padding: 0;
-
 
       img {
         width: 24px;
@@ -138,7 +135,6 @@ section .inner,
       right: -100%;
       padding: 20px;
       transition: 0.7s;
-
 
       .close_btn {
         position: absolute;
@@ -172,7 +168,6 @@ section .inner,
     }
   }
 }
-
 
 #header.active {
   background-color: #222222;
@@ -217,6 +212,7 @@ section .inner,
       .contents {
         display: flex;
         justify-content: center;
+        align-items: center;
         gap: 10.5%;
 
         .image {
@@ -232,12 +228,12 @@ section .inner,
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
-          width: 59.5%;
-          gap: 50px;
+          width: 70%;
+          gap: 40px;
 
           .item {
-            max-width: 306px;
-            width: 42.85%;
+            max-width: 340px;
+            width: 46%;
 
             h3 {
               margin-bottom: 10px;
@@ -247,8 +243,16 @@ section .inner,
 
             ul {
               > li {
+                display: flex;
                 font-size: 18px;
                 margin-top: 4px;
+                .date {
+                  width: 90px;
+                }
+                p {
+                  max-width: 250px;
+                  width: 67.84%;
+                }
               }
             }
 
@@ -283,12 +287,16 @@ section .inner,
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
 
       .tab_menu {
         display: flex;
         justify-content: center;
         gap: 12px;
         margin-bottom: 40px;
+        position: sticky;
+        top: 70px;
+        z-index: 1;
 
         li {
           button {
@@ -327,8 +335,8 @@ section .inner,
             left: 50%;
             transform: translate(-50%, 0%);
             text-align: center;
-            font-size: 30px;
-            font-weight: 600;
+            font-size: 34px;
+            font-weight: 700;
             white-space: normal;
             word-break: keep-all;
             line-break: loose;
@@ -561,11 +569,13 @@ section .inner,
       address {
         display: flex;
         flex-direction: column;
+        align-items: center;
         font-size: 20px;
         font-weight: 300;
 
-        h3 {
-          margin-bottom: 5px;
+        .contact {
+          font-size: 20px;
+          margin-bottom: 10px;
           font-weight: 700;
         }
 
@@ -576,6 +586,22 @@ section .inner,
         }
 
         .phone {
+        }
+        .PDF {
+          margin-top: 20px;
+          border: 2px solid #eeeeee;
+          color: #eeeeee;
+          border-radius: 50px;
+          white-space: nowrap;
+          padding: 4px 16px;
+          transition: 0.3s;
+        }
+        .PDF:hover {
+
+          color: #222222;
+          background-color: #eeeeee;
+          
+
         }
       }
 
