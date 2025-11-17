@@ -631,7 +631,7 @@ section .inner,
   }
 
   .section_title {
-    font-size: 30px;
+    font-size: 36px;
     margin-bottom: 30px;
   }
 
@@ -661,17 +661,20 @@ section .inner,
   #main {
     .section-01 {
       .inner {
+        
         .section_title {
           margin-bottom: 50px;
         }
 
         .contents {
+          flex-direction: column;
           justify-content: space-between;
           gap: 0;
 
           .image {
             width: 25.63%;
             height: 300px;
+            margin-bottom: 50px;
 
             img {
               height: 100%;
@@ -679,12 +682,13 @@ section .inner,
           }
 
           .list {
-            width: 67.37%;
+            width: 85%;
             gap: 30px;
+            row-gap: 50px;
 
             .item {
-              max-width: 288px;
-              width: 45.94%;
+              max-width: unset;
+              width: 45%;
 
               h3 {
                 margin-bottom: 10px;
@@ -937,8 +941,9 @@ section .inner,
 
         .contents {
           flex-direction: column;
-          align-items: center;
+          
 
+         
           .image {
             width: 40%;
             height: auto;
@@ -947,13 +952,17 @@ section .inner,
 
           .list {
             flex-direction: column;
-            width: 100%;
+            align-items: center;
             row-gap: 50px;
-            text-align: center;
+            
 
             .item {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
               max-width: none;
-              width: 100%;
+              width: 280px;
+              
 
               h3 {
                 margin-bottom: 0;
@@ -962,13 +971,27 @@ section .inner,
               }
 
               ul {
-                li {
+                
+                > li {
                   font-size: 16px;
                   margin-top: 4px;
+                  .date {
+                    width: 67px;
+
+                  }
+                  p {
+                    max-width: 180px;
+                    margin-left: 16px;
+                  }
                 }
               }
+              .profile_list {
+                text-align: center;
+              }
+            
 
               .Skill_list {
+                max-width: 220px;
                 font-size: 12px;
                 display: flex;
 
