@@ -1,0 +1,113 @@
+$margin: 32px;
+$gutter: 16px;
+
+/* CSS variables (runtime 사용용) */
+:root {
+    --margin: #{$margin};
+    --gutter: #{$gutter};
+}
+
+/* 섹션: 메인 비주얼 */
+#main {
+    
+    .main_visual {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+
+        /* 셰이더 캔버스 레이어 (z=5, 뒤로) */
+        .shader-root {
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            pointer-events: none;
+
+            canvas {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                display: block;
+                pointer-events: none;
+            }
+        }
+
+        /* 레이아웃 래퍼 */
+        .layout {
+            position: relative;
+            height: 100%;
+
+            /* 중앙 타이포 */
+            .visual_text {
+                position: relative;
+                height: 100%;
+                font-size: 130px;
+                font-weight: 700;
+                line-height: 1.2;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                z-index: 10;
+                color: #222222;
+                opacity: 1;
+
+                .text_top {
+                    color: transparent;
+                    font-weight: 800;                   
+                    -webkit-text-stroke: 1.5px #222222;
+                    mix-blend-mode: normal;
+
+                }
+
+                .text_middle {
+                    
+                }
+
+                .text_bottom {
+                    color: transparent;
+                    font-weight: 800;                   
+                    -webkit-text-stroke: 1.5px #222222;
+                    mix-blend-mode: normal;
+
+                }
+            }
+        }
+
+
+    }
+}
+
+@media screen and (min-width: 861px) and (max-width: 1024px) {
+    #main {
+        .main_visual {
+            .layout {
+
+                .visual_text {
+                    font-size: 100px;
+                }
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width: 860px) {
+    #main {
+        .main_visual {
+            .layout {
+
+                .visual_text {
+                    font-size: 50px;
+                }
+            }
+
+        }
+    }
+}
+
+/* dat.GUI 등 컨트롤 패널이 있다면
+.dg.ac {
+  z-index: 9999;
+}
+*/
