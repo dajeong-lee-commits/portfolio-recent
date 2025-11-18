@@ -709,7 +709,6 @@ section .inner,
     flex-direction: column;
     align-items: center;
     max-width: none;
-    width: 280px;
   }
   #main .section-01 .inner .contents .list .item h3 {
     margin-bottom: 0;
@@ -856,18 +855,19 @@ section .inner,
     background-color: #222222;
     transition: 0.3s;
   }
-  .section-03 .inner .contents .lightbox-gallery {
+  #main .section-03 .inner .contents .lightbox-gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 0;
     row-gap: 16px;
   }
-  .section-03 .inner .contents .lightbox-gallery .item {
+  #main .section-03 .inner .contents .lightbox-gallery .item {
     width: 48.3%;
     height: auto;
+    aspect-ratio: 1/1;
   }
-  .section-03 .inner .contents .lightbox-gallery .item:hover img {
+  #main .section-03 .inner .contents .lightbox-gallery .item:hover img {
     transform: scale(1);
   }
 }
