@@ -484,17 +484,31 @@ section .inner,
             border-radius: 18px;
             overflow: hidden;
             height: 282px;
+            position: relative;
 
-            img {
+            >img {
               width: 100%;
               height: 100%;
               object-fit: cover;
               display: block;
               transition: transform 0.3s ease-in-out;
             }
+            .tool {
+              position: absolute;
+              top: 12px;
+              right: 12px;
+              
+              img {
+                width: 36px;
+                height: 36px;
+                object-fit: cover;
+                display: block;
+
+              }
+            }
           }
 
-          .item:hover img {
+          .item:hover > img {
             transform: scale(1.1);
           }
         }
