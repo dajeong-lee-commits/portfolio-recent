@@ -59,8 +59,8 @@ window.onload = () => {
     scene = new THREE.Scene();
     camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
-    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer = new THREE.WebGLRenderer({ antialias: false, alpha: false });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.2));
     renderer.setSize(window.innerWidth, window.innerHeight);
     root.appendChild(renderer.domElement);
 
@@ -120,14 +120,15 @@ window.onload = () => {
       }
 
       vec3 normal(vec3 p){
-        vec2 e = vec2(1.0,-1.0)*0.01;
-        return normalize(
-          distfunc(p - e.yxx)*e.yxx +
-          distfunc(p - e.xyx)*e.xyx +
-          distfunc(p - e.xxy)*e.xxy +
-          distfunc(p - e.y)  *e.y
-        );
-      }
+  float e = 0.02;     // 0.01 → 0.02 로 증가 (샘플 거리를 넓혀 연산 수 감소)
+  vec2 k = vec2(1.0, -1.0) * e;
+  return normalize(
+    distfunc(p - k.yxx) * k.yxx +
+    distfunc(p - k.xyx) * k.xyx +
+    distfunc(p - k.xxy) * k.xxy +
+    distfunc(p - k.y)   * k.y
+  );
+}
 
       vec4 march(vec3 p, vec3 d){
         vec4 m = vec4(p,0.0);
@@ -211,12 +212,16 @@ window.onload = () => {
   }
 
   function onResize() {
-    const w = window.innerWidth, h = window.innerHeight;
+    const scale = 0.8; // 80% 해상도로 렌더
+    const w = window.innerWidth * scale;
+    const h = window.innerHeight * scale;
     renderer.setSize(w, h);
     uniforms.iResolution.value.set(w, h);
 
     makeTextTexture();
     uniforms.u_textTex.value = textTexture;
+    renderer.domElement.style.width = "100%";
+    renderer.domElement.style.height = "100%";
   }
 
   function animate() {
