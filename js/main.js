@@ -20,7 +20,7 @@ $(function () {
 
     const $tabItems = $('.tab_menu li');
     const $tabButtons = $tabItems.find('button');
-    const $panels = $('.section-02 .contents .tab_list');
+    const $panels = $('.section-02 .tab_list');
 
     $tabButtons.on('click', function (e) {
         e.preventDefault();
@@ -40,6 +40,37 @@ $(function () {
         const sectionTop = $('.section-02').offset().top - getHeaderH();
         $('html, body').stop(true).animate({ scrollTop: sectionTop }, 500);
     });
+
+    const $tabMenu = $('.section-02 .tab_menu');
+    const $bg = $('.section-02 .bg');
+    const headerH = $('#header').outerHeight();      // fixed header 높이(70px)
+
+    let stickPoint = 0;
+    const adjust = 0; // ★ 여기서 미세 조정 (+면 더 아래에서, -면 더 위에서)
+
+    // tab_menu가 sticky 되기 시작하는 스크롤 지점 계산
+    function calcStickPoint() {
+        // tab_menu의 문서 기준 Y좌표 - top(=header 높이)
+        stickPoint = $tabMenu.offset().top - headerH;
+    }
+
+    // 처음 1번 계산
+    $(window).on('load', calcStickPoint);
+    // 리사이즈나 레이아웃 변경 시에도 다시 계산
+    $(window).on('resize', calcStickPoint);
+
+    // 스크롤 할 때마다 체크
+    $(window).on('scroll', function () {
+        const scrollTop = $(this).scrollTop();
+
+        if (scrollTop >= stickPoint + adjust) {
+            $bg.addClass('active');   // tab_menu가 sticky로 고정되기 시작한 이후
+        } else {
+            $bg.removeClass('active'); // 원래 자리로 돌아왔을 때
+        }
+    });//section-02 탭메뉴 배경
+
+
 
 
     const getHeaderH = () => $('#header').outerHeight() || 0;

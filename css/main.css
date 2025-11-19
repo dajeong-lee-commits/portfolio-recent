@@ -206,15 +206,30 @@ section .inner,
   flex-direction: column;
   align-items: center;
   position: relative;
+  /* .tab_menu_bg {
+    height: 54px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.685);
+    position: sticky;
+    top: 70px;
+    z-index: 1;
+    span {
+      position: absolute;
+      right: 99999px;
+    }
+  } */
 }
 #main .section .inner .tab_menu {
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-bottom: 40px;
+  margin-bottom: 27px;
   position: sticky;
   top: 70px;
-  z-index: 1;
+  z-index: 2;
+  width: 100%;
+  height: 60px;
+  align-items: center;
 }
 #main .section .inner .tab_menu li button {
   font-size: 16px;
@@ -375,6 +390,32 @@ section .inner,
 }
 #main .section .inner .tab_list.active {
   display: flex;
+}
+#main .section-02 {
+  position: relative;
+}
+#main .section-02 .bg {
+  width: 100%;
+  height: 60px;
+  background-color: transparent; /* 배경색을 반투명하게 설정 */
+  position: sticky;
+  top: 70px;
+  z-index: 1;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+  transition: 0.3s ease-in-out;
+}
+#main .section-02 .bg span {
+  position: absolute;
+  right: 999999px;
+}
+#main .section-02 .bg.active {
+  background-color: rgba(255, 255, 255, 0.3); /* 배경색을 반투명하게 설정 */
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+#main .section-02 .inner .section_title {
+  margin-bottom: 27px;
 }
 #main .section-03 .inner .contents .lightbox-gallery {
   display: grid;
@@ -581,6 +622,7 @@ section .inner,
   #main .section .inner .tab_menu {
     gap: 8px;
     margin-bottom: 30px;
+    top: 60px;
   }
   #main .section .inner .tab_menu li button {
     padding: 3px 14px;
@@ -650,6 +692,9 @@ section .inner,
     border: 1px solid #222222;
     background-color: #222222;
     transition: 0.3s;
+  }
+  #main .section-02 .bg {
+    top: 60px;
   }
   #main .section-03 .inner .contents .lightbox-gallery {
     grid-template-columns: 1fr 1fr 1fr;
@@ -760,6 +805,7 @@ section .inner,
     width: 100%;
     gap: 8px;
     margin-bottom: 30px;
+    top: 60px;
   }
   #main .section .inner .tab_menu li button {
     padding: 2px 14px;
@@ -862,6 +908,9 @@ section .inner,
     border: 1px solid #222222;
     background-color: #222222;
     transition: 0.3s;
+  }
+  #main .section-02 .bg {
+    top: 60px;
   }
   #main .section-03 .inner .contents .lightbox-gallery {
     display: flex;
