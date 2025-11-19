@@ -400,6 +400,8 @@ section .inner,
   position: absolute;
   top: 12px;
   right: 12px;
+  display: flex;
+  gap: 12px;
 }
 #main .section-03 .inner .contents .lightbox-gallery .item .tool img {
   width: 36px;
@@ -722,6 +724,7 @@ section .inner,
     flex-direction: column;
     align-items: center;
     max-width: none;
+    width: 100%;
   }
   #main .section-01 .inner .contents .list .item h3 {
     margin-bottom: 0;
@@ -742,6 +745,9 @@ section .inner,
   #main .section-01 .inner .contents .list .item .profile_list {
     text-align: center;
   }
+  #main .section-01 .inner .contents .list .item .profile_list li {
+    display: block;
+  }
   #main .section-01 .inner .contents .list .item .Skill_list {
     max-width: 220px;
     font-size: 12px;
@@ -749,17 +755,6 @@ section .inner,
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px 16px;
-  }
-  #main .section-01 .inner .contents .list .item .Skill_list li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  #main .section-01 .inner .contents .list .item .Skill_list li img {
-    width: 36px;
-    height: 36px;
-    -o-object-fit: cover;
-       object-fit: cover;
   }
   #main .section .inner .tab_menu {
     width: 100%;
@@ -879,6 +874,14 @@ section .inner,
     width: 48.3%;
     height: auto;
     aspect-ratio: 1/1;
+  }
+  #main .section-03 .inner .contents .lightbox-gallery .item .tool {
+    top: 8px;
+    right: 8px;
+    gap: 8px;
+  }
+  #main .section-03 .inner .contents .lightbox-gallery .item .tool > img {
+    border-radius: 10px;
   }
   #main .section-03 .inner .contents .lightbox-gallery .item:hover img {
     transform: scale(1);
